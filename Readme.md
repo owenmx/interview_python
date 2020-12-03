@@ -123,9 +123,9 @@
 
 
 
-# Python语言特性
+#  Python语言特性
 
-## 1 Python的函数参数传递
+## 🚀 1 Python的函数参数传递
 
 看两个例子:
 
@@ -222,7 +222,7 @@ a=A()
 更多关于这个问题:
 1. http://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
 2. https://realpython.com/blog/python/instance-class-and-static-methods-demystified/
-## 4 类变量和实例变量
+## 🚀 4 类变量和实例变量
 
 **类变量：**
 
@@ -280,7 +280,7 @@ print Person.name  # [1]
 
 参考:http://stackoverflow.com/questions/6470428/catch-multiple-exceptions-in-one-line-except-block
 
-## 5 Python自省
+## 🚀 5 Python自省
 
 这个也是python彪悍的特性.
 
@@ -296,7 +296,7 @@ print isinstance(a,list)  # True
 
 
 
-## 6 字典推导式
+## 🚀 6 字典推导式
 
 可能你见过列表推导时,却没有见过字典推导式,在2.7中才加入的:
 
@@ -304,7 +304,7 @@ print isinstance(a,list)  # True
 d = {key: value for (key, value) in iterable}
 ```
 
-## 7 Python中单下划线和双下划线
+## 🚀 7 Python中单下划线和双下划线
 
 ```python
 >>> class MyClass():
@@ -333,7 +333,7 @@ AttributeError: myClass instance has no attribute '__superprivate'
 
 或者: http://www.zhihu.com/question/19754941
 
-## 8 字符串格式化:%和.format
+## 🚀 8 字符串格式化:%和.format
 
 .format在许多方面看起来更便利.对于`%`最烦人的是它无法同时传递一个变量和元组.你可能会想下面的代码不会有什么问题:
 
@@ -356,7 +356,7 @@ AttributeError: myClass instance has no attribute '__superprivate'
 
 http://stackoverflow.com/questions/5082452/python-string-formatting-vs-format
 
-## 9 迭代器和生成器
+## 🚀 9 迭代器和生成器
 
 这个是stackoverflow里python排名第一的问题,值得一看: http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python
 
@@ -376,7 +376,7 @@ http://stackoverflow.com/questions/5082452/python-string-formatting-vs-format
 ```
 通过列表生成式，可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含百万元素的列表，不仅是占用很大的内存空间，如：我们只需要访问前面的几个元素，后面大部分元素所占的空间都是浪费的。因此，没有必要创建完整的列表（节省大量内存空间）。在Python中，我们可以采用生成器：边循环，边计算的机制—>generator
 
-## 10 `*args` and `**kwargs`
+## 🚀 10 `*args` and `**kwargs`
 
 用`*args`和`**kwargs`只是为了方便并没有强制使用它们.
 
