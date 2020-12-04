@@ -182,11 +182,50 @@ print a  # [1]
 
 如果还不明白的话,这里有更好的解释: http://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference
 
-## 2 Python中的元类(metaclass)
+## 2 🚀 Python中的元类(metaclass)
 
-这个非常的不常用,但是像ORM这种复杂的结构还是会需要的,详情请看:http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
+这个非常的不常用,但是像ORM这种复杂的结构还是会需要的,详情请看:http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python 以及知乎文章 [一文搞懂什么是Python的metaclass - somenzz的文章](https://zhuanlan.zhihu.com/p/98440398)
 
-## 3 @staticmethod和@classmethod
+需要注意：`__new__和__init__`的区别
+
++ __new__ 是在__init__之前被调用的特殊方法
++ __new__是用来创建当前类的对象并返回，然后会自动调用__init__函数
++ 如果自定义了__new__函数但是没有返回值，那么不会调用该类的__init__的函数
+
+```python
+class Mymeta(type): # 自定义meta类别
+    def __init__(self, name, bases, dic):
+        super().__init__(name, bases, dic)
+        print('===>Mymeta.__init__')
+        print(self.__name__)
+        print(dic)
+        print(self.yaml_tag)
+    
+    def __new__(cls, *args, **kwargs):
+        print('===>Mymeta.__new__')
+        print(cls.__name__)
+        return type.__new__(cls, *args, **kwargs)
+
+    def __call__(cls, *args, **kwargs):
+        print('===>Mymeta.__call__')
+        obj = cls.__new__(cls)
+        cls.__init__(cls, *args, **kwargs)
+        return obj
+
+class Foo(metaclass=Mymeta): # 显式定义metaclass
+    yaml_tag = '!Foo'
+    def __init__(self, name):
+        print('Foo.__init__')
+        self.name = name
+    def __new__(cls, *args, **kwargs):
+        print('Foo.__new__')
+        return object.__new__(cls)
+a = Foo("Hello")
+```
+
+
+
+## 3  🚀 @staticmethod和@classmethod
 
 Python其实有3个方法,即静态方法(staticmethod),类方法(classmethod)和实例方法,如下:
 
@@ -429,7 +468,7 @@ a = aardvark, b = baboon, c = cat
 
 http://stackoverflow.com/questions/3394835/args-and-kwargs
 
-## 11 面向切面编程AOP和装饰器
+## 11 🚀 面向切面编程AOP和装饰器
 
 这个AOP一听起来有点懵,同学面阿里的时候就被问懵了...
 
@@ -439,7 +478,9 @@ http://stackoverflow.com/questions/3394835/args-and-kwargs
 
 中文: http://taizilongxu.gitbooks.io/stackoverflow-about-python/content/3/README.html
 
-## 12 鸭子类型
+注意：@d,就等价于e=d(e)
+
+## 12  🚀 鸭子类型 Duck Typing
 
 “当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”
 
@@ -451,7 +492,9 @@ http://stackoverflow.com/questions/3394835/args-and-kwargs
 
 鸭子类型在动态语言中经常使用，非常灵活，使得python不像java那样专门去弄一大堆的设计模式。
 
-## 13 Python中重载
+我的注解：这应该和Python动态编译的特性有关。
+
+## 13 🚀 Python中重载
 
 引自知乎:http://www.zhihu.com/question/20053359
 
@@ -469,6 +512,8 @@ http://stackoverflow.com/questions/3394835/args-and-kwargs
 好了，鉴于情况 1 跟 情况 2 都有了解决方案，python 自然就不需要函数重载了。
 
 ## 14 新式类和旧式类
+
+- [ ] 同时需要明白super的含义
 
 这个面试官问了,我说了老半天,不知道他问的真正意图是什么.
 
