@@ -521,6 +521,8 @@ Python实现了描述符功能，正是基于这个功能实现了新式类（ne
 
 这篇文章很好的介绍了新式类的特性: http://www.cnblogs.com/btchenguang/archive/2012/09/17/2689146.html
 
+也可以参考：https://blog.csdn.net/lis_12/article/details/52859376
+
 新式类很早在2.2就出现了,所以旧式类完全是兼容的问题,Python3里的类全部都是新式类.这里有一个MRO （method resolution order，方法解释顺序）问题可以了解下(新式类继承是根据C3算法,旧式类是深度优先),<Python核心编程>里讲的也很多.
 
 > 一个旧式类的深度优先的例子
