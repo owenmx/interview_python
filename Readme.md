@@ -780,7 +780,7 @@ c =  [1, 2, 3, 4, ['a', 'b', 'c']]
 d =  [1, 2, 3, 4, ['a', 'b']]
 ```
 
-## 24 Python垃圾回收机制
+## 24 🚀 Python垃圾回收机制
 
 Python GC主要使用**引用计数（reference counting）**来跟踪和回收垃圾。在引用计数的基础上，**通过“标记-清除”（mark and sweep）**解决容器对象可能产生的循环引用问题，通过**“分代回收”（generation collection）**以空间换时间的方法提高垃圾回收效率。
 
@@ -811,15 +811,15 @@ Python默认定义了三代对象集合，索引数越大，对象存活时间�
 举例：
 当某些内存块M经过了3次垃圾收集的清洗之后还存活时，我们就将内存块M划到一个集合A中去，而新分配的内存都划分到集合B中去。当垃圾收集开始工作时，大多数情况都只对集合B进行垃圾回收，而对集合A进行垃圾回收要隔相当长一段时间后才进行，这就使得垃圾收集机制需要处理的内存少了，效率自然就提高了。在这个过程中，集合B中的某些内存块由于存活时间长而会被转移到集合A中，当然，集合A中实际上也存在一些垃圾，这些垃圾的回收会因为这种分代的机制而被延迟。
 
-## 25 Python的List
+## 25 Python的List 💊
 
 推荐: http://www.jianshu.com/p/J4U6rR
 
-## 26 Python的is
+## 26 🚀 Python的is
 
 is是对比地址,==是对比值
 
-## 27 read,readline和readlines
+## 27 🚀 read,readline和readlines
 
 * read        读取整个文件
 * readline    读取下一行,使用生成器方法
@@ -829,15 +829,19 @@ is是对比地址,==是对比值
 推荐：[Python 2.7.x 与 Python 3.x 的主要差异](http://chenqx.github.io/2014/11/10/Key-differences-between-Python-2-7-x-and-Python-3-x/)
 
 ## 29 super init
-super() lets you avoid referring to the base class explicitly, which can be nice. But the main advantage comes with multiple inheritance, where all sorts of fun stuff can happen. See the standard docs on super if you haven't already.
++ super() lets you avoid referring to the base class **explicitly**, which can be nice. But the main advantage comes with multiple inheritance（多重集成）, where all sorts of fun stuff can happen. See the standard docs on super if you haven't already.
 
-Note that the syntax changed in Python 3.0: you can just say super().`__init__`() instead of super(ChildB, self).`__init__`() which IMO is quite a bit nicer.
++ Note that the syntax changed in Python 3.0: you can just say super().`__init__`() instead of super(ChildB, self).`__init__`() which IMO is quite a bit nicer.
+
++ **Without super, you are limited in your ability to use multiple inheritance**
 
 http://stackoverflow.com/questions/576169/understanding-python-super-with-init-methods
 
 [Python2.7中的super方法浅见](http://blog.csdn.net/mrlevo520/article/details/51712440)
 
-## 30 range and xrange
+## 30 🚀 range and xrange
++ Python3没有移除`xrange`，知识将他重命成了`range`。It was not removed: it was renamed to `range`, and the 2.x `range` is what was removed.
+
 都在循环时使用，xrange内存性能更好。
 for i in range(0, 20):
 for i in xrange(0, 20):
